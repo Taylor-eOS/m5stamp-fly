@@ -1,6 +1,6 @@
 **m5stamp-fly**
 
-A refactored version of [M5Stack/M5StampFly](https://github.com/m5stack/M5StampFly).
+A rewritten version of [M5Stack/M5StampFly](https://github.com/m5stack/M5StampFly).
 
 Firmware copyright 2024 Kouhei Ito & M5Stack.<br>
 BMI270 driver copyright 2023 Bosch Sensortec GmbH.<br>
