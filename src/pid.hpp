@@ -23,20 +23,43 @@
  * SOFTWARE.
  */
 
-#include <Arduino.h>
-#include <FastLED.h>
-#include "flight_control.hpp"
+#ifndef PID_HPP
+#define PID_HPP
 
-//VL53L0X_ADDRESS 0x29
-//MPU6886_ADDRESS 0x68
-//BMP280_ADDRESS 0x76
+class PID {
+   private:
+    float proportional_gain;
+    float integral_time;
+    float derivative_time;
+    float derivative_filter_coefficient;
+    float previous_error, prev_error_2, prev_error_3;
+    float sample_time;
 
-void setup() {
-    init_copter();
-    delay(100);
-}
+   public:
+    float m_differential;
+    float m_integral;
+    PID();
+    void set_parameter(float kp, float ti, float td, float eta, float h);
+    void reset(void);
+    void i_reset(void);
+    void printGain(void);
+    void set_error(float err);
+    float update(float current_error, float h);
+};
 
-void loop() {
-    loop_400Hz();
-}
+class Filter {
+   private:
+    float filter_state;
+    float time_constant;
+    float sample_time;
+
+   public:
+    float filter_output;
+    Filter();
+    void set_parameter(float T, float h);
+    void reset(void);
+    float update(float input_value, float h);
+};
+
+#endif
 

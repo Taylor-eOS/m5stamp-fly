@@ -24,19 +24,35 @@
  */
 
 #include <Arduino.h>
-#include <FastLED.h>
-#include "flight_control.hpp"
+#include "utils.hpp"
 
-//VL53L0X_ADDRESS 0x29
-//MPU6886_ADDRESS 0x68
-//BMP280_ADDRESS 0x76
+void init_pwm(void);
+void set_duty_fr(float duty);
+void set_duty_fl(float duty);
+void set_duty_rr(float duty);
+void set_duty_rl(float duty);
 
-void setup() {
-    init_copter();
-    delay(100);
-}
-
-void loop() {
-    loop_400Hz();
+void test_spin(void) {
+    static uint8_t run_once = 0;
+    if (run_once) return;
+    run_once = 1;
+    delay(1000);
+    init_pwm();
+    set_duty_fr(0.3f);
+    delay(400);
+    set_duty_fr(0.0f);
+    delay(200);
+    set_duty_fl(0.3f);
+    delay(400);
+    set_duty_fl(0.0f);
+    delay(200);
+    set_duty_rr(0.3f);
+    delay(400);
+    set_duty_rr(0.0f);
+    delay(200);
+    set_duty_rl(0.3f);
+    delay(400);
+    set_duty_rl(0.0f);
+    delay(400);
 }
 
