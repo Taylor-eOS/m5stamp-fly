@@ -22,7 +22,7 @@
 
 #include "Bitcraze_PMW3901.h"
 #include <SPI.h>
-#include "status_transmitter.h"
+#include "StatusTransmitter.h"
 
 #define CHIP_ID         0x49  
 #define CHIP_ID_INVERSE 0xB6  
