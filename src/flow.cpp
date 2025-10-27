@@ -2,7 +2,7 @@
 #include <Arduino.h>
 #include <SPI.h>
 #include <Bitcraze_PMW3901.h>
-#include "status_transmitter.h"
+#include "StatusTransmitter.h"
 
 Bitcraze_PMW3901 flow(12);
 bool flow_init_ok = false;
