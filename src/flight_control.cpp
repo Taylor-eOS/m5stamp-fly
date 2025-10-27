@@ -32,7 +32,7 @@
 #include "button.hpp"
 #include "buzzer.h"
 #include "utils.hpp"
-#include "status_transmitter.h"
+#include "StatusTransmitter.h"
 #include "flow.hpp"
 
 const int pwmFrontLeft = 5;
